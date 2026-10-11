@@ -1,0 +1,83 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentlint"
+version = "0.1.0"
+description = "A deterministic linter for AI agent execution trajectories. Like pylint, but for AI agents."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Liban" },
+]
+keywords = [
+    "ai",
+    "agents",
+    "evaluation",
+    "linter",
+    "testing",
+    "trajectory",
+    "debugging",
+    "llm",
+    "quality",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "pydantic>=2.0,<3.0",
+    "typer>=0.9,<1.0",
+    "rich>=13.0,<14.0",
+    "networkx>=3.0,<4.0",
+    "scikit-learn>=1.3,<2.0",
+    "numpy>=1.24,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0,<9.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4.0",
+    "mypy>=1.8",
+]
+
+[project.scripts]
+agentlint = "agentlint.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/agentlint"
+Documentation = "https://github.com/YOUR_USERNAME/agentlint#readme"
+Repository = "https://github.com/YOUR_USERNAME/agentlint"
+Issues = "https://github.com/YOUR_USERNAME/agentlint/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentlint"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM", "RUF"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_return_any = true
+warn_unused_configs = true

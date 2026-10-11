@@ -1,0 +1,77 @@
+{
+  "trace_id": "healthy-01",
+  "agent_name": "research-agent",
+  "framework": "raw_json",
+  "task": "Find the population of France and its GDP per capita",
+  "available_tools": ["web_search", "calculator", "write_file"],
+  "tool_schemas": {
+    "web_search": {
+      "properties": {
+        "query": {"type": "string"}
+      },
+      "required": ["query"]
+    },
+    "calculator": {
+      "properties": {
+        "expression": {"type": "string"}
+      },
+      "required": ["expression"]
+    }
+  },
+  "final_output": "France has a population of approximately 68 million people and a GDP per capita of approximately $44,000.",
+  "success": true,
+  "steps": [
+    {
+      "index": 0,
+      "step_type": "thought",
+      "content": "I need to find two pieces of information: the population of France and its GDP per capita. Let me search for both."
+    },
+    {
+      "index": 1,
+      "step_type": "tool_call",
+      "content": "Searching for population of France",
+      "tool_call": {
+        "name": "web_search",
+        "arguments": {"query": "population of France 2026"},
+        "result": "France has a population of approximately 68.17 million people as of 2026.",
+        "success": true,
+        "duration_ms": 450
+      }
+    },
+    {
+      "index": 2,
+      "step_type": "observation",
+      "content": "France has a population of approximately 68.17 million people.",
+      "observation": {
+        "content": "France has a population of approximately 68.17 million people as of 2026.",
+        "source": "web_search"
+      }
+    },
+    {
+      "index": 3,
+      "step_type": "tool_call",
+      "content": "Now searching for GDP per capita",
+      "tool_call": {
+        "name": "web_search",
+        "arguments": {"query": "GDP per capita France 2026"},
+        "result": "France's GDP per capita is approximately $44,408 as of 2026.",
+        "success": true,
+        "duration_ms": 380
+      }
+    },
+    {
+      "index": 4,
+      "step_type": "observation",
+      "content": "France GDP per capita is approximately $44,408.",
+      "observation": {
+        "content": "France's GDP per capita is approximately $44,408 as of 2026.",
+        "source": "web_search"
+      }
+    },
+    {
+      "index": 5,
+      "step_type": "action",
+      "content": "France has a population of approximately 68 million people and a GDP per capita of approximately $44,000."
+    }
+  ]
+}
