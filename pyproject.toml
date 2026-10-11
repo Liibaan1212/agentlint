@@ -57,10 +57,10 @@ dev = [
 agentlint = "agentlint.cli:app"
 
 [project.urls]
-Homepage = "https://github.com/YOUR_USERNAME/agentlint"
-Documentation = "https://github.com/YOUR_USERNAME/agentlint#readme"
-Repository = "https://github.com/YOUR_USERNAME/agentlint"
-Issues = "https://github.com/YOUR_USERNAME/agentlint/issues"
+Homepage = "https://github.com/Liibaan1212/agentlint"
+Documentation = "https://github.com/Liibaan1212/agentlint#readme"
+Repository = "https://github.com/Liibaan1212/agentlint"
+Issues = "https://github.com/Liibaan1212/agentlint/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/agentlint"]

@@ -6,7 +6,7 @@ Thank you for your interest in contributing to AgentLint! This document explains
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/agentlint.git
+git clone https://github.com/Liibaan1212/agentlint.git
 cd agentlint
 
 # Create a virtual environment
